@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 import { dataOfLesson6 } from "../Utils/store";
 import { toast } from "react-toastify";
-import celebration from "../assets/Congratulations.mp3";
-import sorrow from "../assets/negative tone.mp3";
+import celebration from "../assets/tones/Congratulations.mp3";
+import sorrow from "../assets/tones/negative tone.mp3";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
@@ -187,7 +187,7 @@ function Lesson6() {
   console.log(wordsOrder);
   return (
     <div className="big-box">
-      <h2>Questions Type:Single Choice</h2>
+      <h2>Questions Type:Fill the space</h2>
 
       <div className="container-questions">
         {lesson6.length > 0 &&
@@ -228,9 +228,9 @@ function Lesson6() {
                     <div className="question-types">
                       <div className="fill-in-blanks">
                         <div className="fill-from-here">
-                          <strong>gfg</strong>|<strong>gfg</strong>|
-                          <strong>gfg</strong>|<strong>gfg</strong>|
-                          <strong>gfg</strong>
+                          {obj.Options.map((val) => {
+                            return <strong>{val}|</strong>;
+                          })}
                         </div>
                         <div className="sentence">
                           {console.log(Object.keys(wordsOrder))}
@@ -275,29 +275,33 @@ function Lesson6() {
                     </div>
                   </div>
                 </div>
+
                 {obj.natureOfAttempt == "" && isSubmitted && (
                   <div className="notAttempt">
-                    <strong>Not Attempted</strong>
-                  </div>
-                )}
-                {obj.natureOfAttempt == "inCorrect" && (
-                  <div className="feedback inCorrectAns">
-                    <InfoOutlinedIcon />
-                    Note:You provided the answer{" "}
-                    {obj.answeredByStudent.join(",")}. That is not correct.
+                    <div className="info">
+                      <InfoOutlinedIcon />
+                      You did't attempt this one.
+                    </div>
                   </div>
                 )}
                 {obj.natureOfAttempt == "correct" && (
                   <div className={`feedback correctAns`}>
                     <CheckCircleOutlineOutlinedIcon />
-                    Answer
-                    {obj.answer.join(",")}.That is Correct
+                    Answer {obj.answer.join(",")}.That is Correct
+                  </div>
+                )}
+                {obj.natureOfAttempt == "inCorrect" && (
+                  <div className="feedback inCorrectAns">
+                    <InfoOutlinedIcon />
+                    Note: Your provided answer is:
+                    {obj.answeredByStudent.join(",")}. That is not correct.
                   </div>
                 )}
                 {isSubmitted && (
-                  <p className="correctAnsWas">
-                    Correct answer was:{obj.answer.join(",")}
-                  </p>
+                  <div className="correctAnsWas">
+                    <InfoOutlinedIcon />
+                    <p>Correct answer was:{obj.answer.join(",")}</p>
+                  </div>
                 )}
               </div>
             );

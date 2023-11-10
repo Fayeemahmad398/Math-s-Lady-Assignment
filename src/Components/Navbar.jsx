@@ -1,7 +1,7 @@
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import React, { useState } from "react";
-import logo from "../assets/math'slady.png";
+import logo from "../assets/images/math'slady.png";
 import { FaAward } from "react-icons/fa";
 import { Badge } from "@mui/material";
 import CircleNotificationsIcon from "@mui/icons-material/CircleNotifications";

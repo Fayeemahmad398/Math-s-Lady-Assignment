@@ -6,7 +6,7 @@
   align-items: center;
   gap: 50px;
 }
-.allOptions-mutliSort{
+.allOptions-mutliSort {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -29,8 +29,7 @@
 }
 .sortingType {
   padding: 7px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
-  
 }

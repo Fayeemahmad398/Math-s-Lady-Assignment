@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 import { dataOfLesson4 } from "../Utils/store";
 import { toast } from "react-toastify";
-import celebration from "../assets/Congratulations.mp3";
-import sorrow from "../assets/negative tone.mp3";
+import celebration from "../assets/tones/Congratulations.mp3";
+import sorrow from "../assets/tones/negative tone.mp3";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
@@ -245,7 +245,7 @@ function Lesson4() {
                                 }}
                               >
                                 <span>{option}</span>
-                                <span>hello2</span>
+                                <span>:</span>
                               </div>
                             ))}
                         </div>
@@ -266,17 +266,20 @@ function Lesson4() {
                     </div>
                   </div>
                 </div>
-                {obj.natureOfAttempt == "" && isSubmitted && (
-                  <div className="notAttempt">
-                    <strong>Not Attempted</strong>
-                  </div>
-                )}
-                {console.log(obj.Options)}
                 {obj.natureOfAttempt == "inCorrect" && (
                   <div className="feedback inCorrectAns">
                     <InfoOutlinedIcon />
-                    Note:You provided the ansswer {obj.Options.join(",")}. That
-                    is not correct.
+                    Note: You provided answer is:{obj.answer.join(",")}. That is
+                    not correct.
+                  </div>
+                )}
+
+                {obj.natureOfAttempt == "" && isSubmitted && (
+                  <div className="notAttempt">
+                    <div className="info">
+                      <InfoOutlinedIcon />
+                      You did't attempt this one.
+                    </div>
                   </div>
                 )}
                 {obj.natureOfAttempt == "correct" && (
@@ -287,9 +290,10 @@ function Lesson4() {
                   </div>
                 )}
                 {isSubmitted && (
-                  <p className="correctAnsWas">
-                    Correct answer was:{obj.answer.join(",")}
-                  </p>
+                  <div className="correctAnsWas">
+                    <InfoOutlinedIcon />
+                    <p>Correct answer was:{obj.answer.join(",")}</p>
+                  </div>
                 )}
               </div>
             );

@@ -1,7 +1,7 @@
 import React from "react";
-import img from "../assets/mathlady.jpg";
+import img from "../assets/images/mathlady.jpg";
 import { useNavigate } from "react-router-dom";
-import pencil from "../assets/pencil-big.png";
+import pencil from "../assets/images/pencil.webp";
 
 function CombinationsOfLessons() {
   const navigate = useNavigate();

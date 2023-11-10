@@ -41,9 +41,10 @@
   height: 50px;
   width: 100%;
   background-color: #fff;
+  /* border: 2px solid red; */
 }
 .penc-img-box img {
-  border-radius: 150px;
+  border-radius: 50px;
   height: 100%;
   width: 100%;
 }

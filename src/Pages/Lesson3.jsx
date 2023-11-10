@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 import { dataOfLesson3 } from "../Utils/store";
 import { toast } from "react-toastify";
-import celebration from "../assets/Congratulations.mp3";
-import sorrow from "../assets/negative tone.mp3";
+import celebration from "../assets/tones/Congratulations.mp3";
+import sorrow from "../assets/tones/negative tone.mp3";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
@@ -290,30 +290,34 @@ function Lesson3() {
                     </div>
                   </div>
                 </div>
+
+                {console.log(obj.natureOfAttempt)}
                 {obj.natureOfAttempt == "" && isSubmitted && (
                   <div className="notAttempt">
-                    <strong>Not Attempted</strong>
+                    <div className="info">
+                      <InfoOutlinedIcon />
+                      You did't attempt this one.
+                    </div>
                   </div>
                 )}
-                {console.log(obj.natureOfAttempt)}
                 {obj.natureOfAttempt == "inCorrect" && (
                   <div className="feedback inCorrectAns">
                     <InfoOutlinedIcon />
-                    Note:You provided the ansswer
-                    {obj.answeredByStudent.toString()}. That is not correct.
+                    Note: You provided answer is:
+                    {obj.answeredByStudent.join(",")}. That is not correct.
                   </div>
                 )}
                 {obj.natureOfAttempt == "correct" && (
                   <div className={`feedback correctAns`}>
                     <CheckCircleOutlineOutlinedIcon />
-                    Answer
-                    {obj.answeredByStudent.toString()}.That is Correct
+                    Answer {obj.answeredByStudent.join(",")}.That is Correct
                   </div>
                 )}
                 {isSubmitted && (
-                  <p className="correctAnsWas">
-                    Correct answer was:{obj.answer.toString()}
-                  </p>
+                  <div className="correctAnsWas">
+                    <InfoOutlinedIcon />
+                    <p>Correct answer was:{obj.answer.join(",")}</p>
+                  </div>
                 )}
               </div>
             );
@@ -334,7 +338,7 @@ function Lesson3() {
             startExerciseAgain();
           }}
         >
-            Reset
+          Reset
         </button>
 
         <button className="submitBtn" onClick={handleSubmitQuiz}>

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
 import { dataOfLesson5 } from "../Utils/store";
 import { toast } from "react-toastify";
-import celebration from "../assets/Congratulations.mp3";
-import sorrow from "../assets/negative tone.mp3";
+import celebration from "../assets/tones/Congratulations.mp3";
+import sorrow from "../assets/tones/negative tone.mp3";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
@@ -35,7 +35,6 @@ function Lesson5() {
 
     if (obj.noOfAttempts > 0 && obj.natureOfAttempt != "correct") {
       let lesson5Data = getDataFromLocal();
-
       let newData = lesson5Data.map((ques) => {
         if (ques.qid == obj.qid) {
           let optionsOrder = ques.fixedOptions.join("");
@@ -53,8 +52,11 @@ function Lesson5() {
             ques.natureOfAttempt = "inCorrect";
             playNegativeTone();
           }
-          ques.answer = ans;
-          ques.noOfAttempts = ques.noOfAttempts - 1;
+          return {
+            ...ques,
+            answeredByStudent: ans,
+            noOfAttempts: ques.noOfAttempts - 1,
+          };
         }
         return { ...ques };
       });
@@ -279,30 +281,34 @@ function Lesson5() {
                     </div>
                   </div>
                 </div>
+
                 {obj.natureOfAttempt == "" && isSubmitted && (
                   <div className="notAttempt">
-                    <strong>Not Attempted</strong>
-                  </div>
-                )}
-                {console.log(obj.Options)}
-                {obj.natureOfAttempt == "inCorrect" && (
-                  <div className="feedback inCorrectAns">
-                    <InfoOutlinedIcon />
-                    Note:You provided the ansswer {obj.answer.join(",")}. That
-                    is not correct.
+                    <div className="info">
+                      <InfoOutlinedIcon />
+                      You did't attempt this one.
+                    </div>
                   </div>
                 )}
                 {obj.natureOfAttempt == "correct" && (
                   <div className={`feedback correctAns`}>
                     <CheckCircleOutlineOutlinedIcon />
-                    Answer
-                    {obj.answer.join(",")}.That is Correct
+                 Your Answer{" "}
+                    {obj.answeredByStudent.join(",")}.That is Correct
+                  </div>
+                )}
+                {obj.natureOfAttempt == "inCorrect" && (
+                  <div className="feedback inCorrectAns">
+                    <InfoOutlinedIcon />
+                    Note: You provided answer is:
+                    {obj.answeredByStudent.join(",")}. That is not correct.
                   </div>
                 )}
                 {isSubmitted && (
-                  <p className="correctAnsWas">
-                    Correct answer was:{obj.fixedOptions.join(",")}
-                  </p>
+                  <div className="correctAnsWas">
+                    <InfoOutlinedIcon />
+                    <p>Correct answer was:{obj.fixedOptions.join(",")}</p>
+                  </div>
                 )}
               </div>
             );
