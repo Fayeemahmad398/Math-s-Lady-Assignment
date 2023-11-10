@@ -1,0 +1,14 @@
+.allOptions-sorting {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.eachoption-sort {
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px;
+  border-radius: 5px;
+}

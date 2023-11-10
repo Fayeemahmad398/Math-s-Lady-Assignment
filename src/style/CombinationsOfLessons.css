@@ -1,0 +1,78 @@
+.classes-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  width: 80vw;
+  margin: auto;
+}
+.CombinationsOfLessons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 10px;
+  width: 80%;
+  margin: 5px;
+  box-shadow: 0px 0px 5px rgb(224, 68, 68);
+}
+.classes-box h2 {
+  margin-top: 30px;
+}
+.img-box {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+.all-pencils {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+
+  gap: 10px;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+}
+.penc-img-box {
+  height: 50px;
+  width: 100%;
+  background-color: #fff;
+}
+.penc-img-box img {
+  border-radius: 150px;
+  height: 100%;
+  width: 100%;
+}
+.pencil-box {
+  position: relative;
+  background-color: #fff;
+}
+.pencil-box :hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.float-lesson {
+  position: absolute;
+  left: 130px;
+  top: 20px;
+}
+
+@media (max-width: 800px) {
+  .CombinationsOfLessons {
+    grid-template-columns: 1fr;
+    width: 100%;
+    justify-items: center;
+  }
+  .classes-box {
+    width: 95%;
+  }
+  .classes-box h2 {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+}

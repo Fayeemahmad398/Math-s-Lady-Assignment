@@ -1,0 +1,22 @@
+.SingleChoice {
+  /* border: 3px solid yellow; */
+}
+
+.allOptions {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.eachRad {
+  border-radius: 5px;
+  border: 1px solid rgb(198, 196, 196);
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+

@@ -1,0 +1,33 @@
+.freeChoice {
+  display: flex;
+  justify-content: space-between;
+}
+.question-types {
+  /* border: 3px solid green; */
+  display: grid;
+  grid-template-columns: 80% 20%;
+  height: 40px;
+  width: 100%;
+}
+
+.freeChoice input {
+  height: 40px;
+  width: 95%;
+  font-size: large;
+  outline: none;
+  border-radius: 5px;
+}
+
+@media (max-width: 800px) {
+  .freeChoice input {
+    height: 30px;
+    width: 100%;
+  }
+  .freeChoice {
+    justify-content: center;
+  }
+  .question-types {
+    grid-template-columns: 100%;
+    gap: 30px;
+  }
+}

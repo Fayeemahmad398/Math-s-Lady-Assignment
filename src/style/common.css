@@ -1,0 +1,206 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ecebeb;
+}
+* {
+  box-sizing: border-box;
+}
+.answer {
+  color: grey;
+}
+.flag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: grey;
+}
+.equation-flag {
+  display: flex;
+  justify-content: space-between;
+}
+.equation {
+  margin: 0px;
+}
+.question {
+  display: flex;
+  flex-direction: column;
+  min-width: 70vw;
+  transition: 1s;
+  padding: 10px;
+  background: #fff;
+}
+.checkbtn {
+  background: blue;
+  width: 150px;
+  height: 35px;
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+.big-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100vw;
+  /* z-index: -1; */
+}
+.container-questions {
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+  width: 70vw;
+  margin: auto;
+  min-height: 350px;
+  box-shadow: 0px 0px 5px grey;
+}
+.correctAns {
+  color: green;
+  border: 1px solid green;
+}
+.inCorrectAns {
+  color: red;
+  border: 1px solid red;
+}
+.floating-btns {
+  background: blue;
+  color: white;
+}
+
+.submitBtn {
+  background: blue;
+  width: 150px;
+  height: 35px;
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+.Questions-box {
+  display: flex;
+  flex-direction: column;
+  min-height: 240px;
+}
+
+.feedback {
+  height: 40px;
+  width: fit-content;
+  padding: 5px;
+  background: #cccaca;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.Attempts {
+  color: blue;
+  margin: 5px;
+  text-align: center;
+}
+.correctAnsWas {
+  margin: 0px;
+  margin-top: 10px;
+  height: 30px;
+  width: fit-content;
+  border-radius: 15px;
+  padding: 5px;
+  background: rgb(241, 169, 131);
+  border: 1px solid green;
+  color: green;
+}
+.notAttempt {
+  display: flex;
+  background: rgb(186, 184, 184);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: yellow;
+  height: 30px;
+  padding: 5px;
+  border-radius: 15px;
+  width: fit-content;
+}
+.PracticeAgain {
+  background: blue;
+  width: 150px;
+  height: 35px;
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+.submitPractice {
+  border: 2px solid red;
+  color: white;
+  width: 70vw;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+}
+
+@media (max-width: 800px) {
+  .container-questions {
+    width: 95vw;
+  }
+  .question {
+    min-width: 95vw;
+  }
+
+  .submitPractice {
+    width: 95vw;
+  }
+
+  .submitBtn {
+    font-size: 17px;
+  }
+  .Attempts {
+    font-size: 12px;
+  }
+
+  .checkbtn {
+    width: 100px;
+    height: 30px;
+  }
+
+  .equation {
+    font-size: 22px;
+  }
+  .question {
+    padding: 2px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  .check-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+@media (max-width: 400px) {
+  .submitBtn {
+    background: blue;
+    width: 100px;
+    height: 30px;
+    color: white;
+    font-size: 20px;
+  }
+
+  .PracticeAgain {
+    background: blue;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    color: white;
+  }
+  .equation {
+    font-size: 18px;
+  }
+  .flag strong {
+    display: none;
+  }
+}
