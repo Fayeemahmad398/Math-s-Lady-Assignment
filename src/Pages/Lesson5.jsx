@@ -196,7 +196,7 @@ function Lesson5() {
 
   return (
     <div className="big-box">
-      <h2>Questions Type:Single Choice</h2>
+      <h2>Questions Type:Matching</h2>
 
       <div className="container-questions">
         {lesson5.length > 0 &&
