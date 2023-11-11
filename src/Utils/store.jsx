@@ -279,7 +279,7 @@ export const dataOfLesson4 = [
 
   {
     qid: "5",
-    question: "Sort All below in Alphabatically decreasing order",
+    question: "Sort All below in  decreasing order",
     Options: ["10", "20", "40", "30"],
     answer: ["40", "30", "20", "10"],
     isVisited: false,

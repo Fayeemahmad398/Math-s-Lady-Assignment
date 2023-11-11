@@ -16,6 +16,9 @@ body {
   align-items: center;
   color: grey;
 }
+.flag div:hover {
+  cursor: pointer;
+}
 .equation-flag {
   display: flex;
   justify-content: space-between;
@@ -39,6 +42,9 @@ body {
   font-size: 20px;
   border-radius: 5px;
   border: 1px solid;
+}
+.checkbtn:hover {
+  cursor: pointer;
 }
 .big-box {
   display: flex;

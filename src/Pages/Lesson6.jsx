@@ -135,17 +135,22 @@ function Lesson6() {
 
     let currentIndex = currentQuiz + 1;
 
-    while (currentIndex <= lesson6Data.length - 1) {
-      if (
-        lesson6Data[currentIndex].isFlag == true ||
-        lesson6Data[currentIndex].isVisited == false
-      ) {
-        setCurrentQuiz(currentIndex);
-        setWordOrder(lesson6Data[currentIndex].wordsOrder);
-        setDataFromLocal();
-        break;
+    if (!isSubmitted) {
+      while (currentIndex <= lesson6Data.length - 1) {
+        if (
+          lesson6Data[currentIndex].isFlag == true ||
+          lesson6Data[currentIndex].isVisited == false
+        ) {
+          setCurrentQuiz(currentIndex);
+          setWordOrder(lesson6Data[currentIndex].wordsOrder);
+          setDataFromLocal();
+          break;
+        }
+        currentIndex++;
       }
-      currentIndex++;
+    } else {
+      setCurrentQuiz(currentIndex);
+      setWordOrder(lesson6Data[currentIndex].wordsOrder);
     }
   }
 

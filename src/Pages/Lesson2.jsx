@@ -65,6 +65,7 @@ function Lesson2() {
       toast.error("Sorry, You don't have any left attempt ");
     }
   }
+
   function playPositiveTone() {
     new Audio(celebration).play();
   }
@@ -260,13 +261,13 @@ function Lesson2() {
                   </div>
                 </div>
                 {obj.natureOfAttempt == "" && isSubmitted && (
-                <div className="notAttempt">
-                  <div className="info">
-                    <InfoOutlinedIcon />
-                    You did't attempt this one.
+                  <div className="notAttempt">
+                    <div className="info">
+                      <InfoOutlinedIcon />
+                      You did't attempt this one.
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
                 {obj.natureOfAttempt == "inCorrect" && (
                   <div className="feedback inCorrectAns">
                     <InfoOutlinedIcon />
@@ -282,11 +283,11 @@ function Lesson2() {
                   </div>
                 )}
                 {isSubmitted && (
-                <div className="correctAnsWas">
-                  <InfoOutlinedIcon />
-                  <p>Correct answer was:{obj.answer}</p>
-                </div>
-              )}
+                  <div className="correctAnsWas">
+                    <InfoOutlinedIcon />
+                    <p>Correct answer was:{obj.answer}</p>
+                  </div>
+                )}
               </div>
             );
           })}
@@ -306,7 +307,7 @@ function Lesson2() {
             startExerciseAgain();
           }}
         >
-            Reset
+          Reset
         </button>
 
         <button className="submitBtn" onClick={handleSubmitQuiz}>
